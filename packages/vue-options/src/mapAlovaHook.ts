@@ -46,7 +46,11 @@ export default <UHC extends UseHookCallers>(mapGetter: UseHookMapGetter<UHC>) =>
         // 挂载响应式状态和计算属性
         vm[dataKey] = reactive(states);
         for (const key in computeds) {
-          vm[dataKey][key] = computed(() => computeds[key]());
+          vm[dataKey][key] = computed(() => {
+            const tt = computeds[key]();
+            key === 'isLastPage' && console.log(key, tt);
+            return tt;
+          });
         }
 
         // 设置watchers

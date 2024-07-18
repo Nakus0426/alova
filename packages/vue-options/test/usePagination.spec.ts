@@ -1,5 +1,4 @@
 import { VueOptionsHook } from '@/index';
-import { GeneralFn } from '@alova/shared/types';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/vue';
 import { createAlova, invalidateCache, queryCache } from 'alova';
@@ -30,7 +29,12 @@ interface ListResponse {
   total: number;
   list: number[];
 }
-const getter1 = (page: number, pageSize: number, extra: Record<string, any> = {}, transform?: GeneralFn) =>
+const getter1 = (
+  page: number,
+  pageSize: number,
+  extra: Record<string, any> = {},
+  transform?: (...args: any[]) => any
+) =>
   alovaInst.Get<ListResponse>('/list', {
     params: {
       page,

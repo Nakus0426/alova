@@ -3,7 +3,7 @@
   "version": "1.0.0-beta.10",
   "description": "process shared cache for alova.js on nodejs, deno, bun and electron",
   "homepage": "https://alova.js.org",
-  "main": "dist/psc.esm.js",
+  "main": "dist/psc.common.cjs",
   "module": "dist/psc.esm.js",
   "types": "dist/index.d.ts",
   "exports": {
